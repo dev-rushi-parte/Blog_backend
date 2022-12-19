@@ -34,10 +34,7 @@ mongoose.connect(url, connectionParams)
     })
 
 
-app.use("/", async (req, res) => {
 
-    res.send("welcome to home page")
-})
 
 app.use("/user", AuthRouter)
 
