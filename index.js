@@ -17,6 +17,17 @@ app.use(express.json());
 
 
 
+app.use("/user", AuthRouter)
+
+// login user authentication middleware
+app.use(userAuthentication)
+
+
+app.use("/blog", BlogRoutes)
+
+
+
+
 const connectionParams = {
     useUnifiedTopology: true,
     useNewUrlParser: true
@@ -34,15 +45,6 @@ mongoose.connect(url, connectionParams)
     })
 
 
-
-
-app.use("/user", AuthRouter)
-
-// login user authentication middleware
-app.use(userAuthentication)
-
-
-app.use("/blog", BlogRoutes)
 
 app.listen(process.env.PORT || 5000, () => {
     console.log("db connect")
